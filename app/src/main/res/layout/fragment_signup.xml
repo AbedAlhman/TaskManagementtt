@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+
+    tools:context=".pages.SignupFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etemailSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:ems="10"
+            android:hint="Email..."
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/etFName"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <EditText
+            android:id="@+id/etPasswordSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="31dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/imgProfile"
+            app:layout_constraintStart_toStartOf="@+id/etUName"
+            app:layout_constraintTop_toBottomOf="@+id/etUName" />
+
+        <Button
+            android:id="@+id/btnSignupSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+            android:backgroundTint="#5CC1F1"
+            android:text="SignUp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+
+        <EditText
+            android:id="@+id/etLName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="LastName..."
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/etUName"
+            app:layout_constraintStart_toStartOf="@+id/etFName"
+            app:layout_constraintTop_toBottomOf="@+id/etFName" />
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="205dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="34dp"
+            android:src="@drawable/user"
+            app:layout_constraintBottom_toTopOf="@+id/btnSignupSignup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordSignup" />
+
+        <EditText
+            android:id="@+id/etFName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="FirstName..."
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/etLName"
+            app:layout_constraintStart_toStartOf="@+id/etemailSignup"
+            app:layout_constraintTop_toBottomOf="@+id/etemailSignup" />
+
+        <EditText
+            android:id="@+id/etUName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="UserName..."
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/etPasswordSignup"
+            app:layout_constraintStart_toStartOf="@+id/etLName"
+            app:layout_constraintTop_toBottomOf="@+id/etLName" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="209dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/logo_transparent"
+            app:layout_constraintBottom_toTopOf="@+id/etemailSignup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

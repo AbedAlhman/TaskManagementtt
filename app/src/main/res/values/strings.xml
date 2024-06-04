@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">TaskManagement</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="checkedtextview">CheckedTextView</string>
+    <string name="your_task">your task</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="the_date">the date</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="checked_text_view_example">Checked Text View Example</string>
+    <string name="android">Android</string>
+    <string name="signup">Signup</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="name">Name</string>
+    <string name="task">Task</string>
+    <string-array name="array_importance">
+        <item>Not Important</item>
+        <item>Important</item>
+        <item>Very Important</item>
+    </string-array>
+    <string-array name="taskornote">
+        <item>Note</item>
+        <item>Task</item>
+    </string-array>
+</resources>
