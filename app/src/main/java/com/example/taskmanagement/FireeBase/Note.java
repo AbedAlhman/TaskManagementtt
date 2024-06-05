@@ -8,8 +8,8 @@ import com.example.taskmanagement.FireeBase.User;
 
 public class Note implements Parcelable {
     private String title;
-    private  String description;//כוח סוס
-    private  String importance; //בעלים
+    private  String description;
+    private  String importance;
     private String photo;
     private boolean task=false;
     private boolean ischecked=false;

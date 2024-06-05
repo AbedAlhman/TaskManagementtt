@@ -15,15 +15,19 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.taskmanagement.FireeBase.FirebaseServices;
 import com.example.taskmanagement.FireeBase.Note;
+import com.example.taskmanagement.FireeBase.User;
 import com.example.taskmanagement.Notepage;
 import com.example.taskmanagement.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
@@ -71,21 +75,74 @@ public class Noteadapter extends RecyclerView.Adapter<Noteadapter.MyViewHolder> 
                        .load(uri)
                        .into(holder.noteimage);
            }
-       }).addOnFailureListener(new OnFailureListener() {
+           }
+       ).addOnFailureListener(new OnFailureListener() {
            @Override
            public void onFailure(@NonNull Exception e) {
                // Handle any errors that occur when downloading the image
            }
 
        });
-       holder.color.setOnClickListener(new View.OnClickListener() {
+       if (note.isIschecked())holder.checkbox.setImageResource(R.drawable.checked);
+       holder.checkbox.setOnClickListener(new View.OnClickListener() {
            @Override
-           public void onClick(View view) {
+           public void onClick(View v) {
+               if (holder.checkbox.getDrawable().getConstantState().equals(ContextCompat.getDrawable(context, R.drawable.checked).getConstantState())) {
+                   DocumentReference userRef = fbs.getFire().collection("Note").document(notepath.get(position).replace("Note",""));
+                   userRef.get()
+                           .addOnSuccessListener((DocumentSnapshot documentSnapshot) -> {
+                               if (documentSnapshot.exists()) {
+                                   documentSnapshot.getReference().update("ischeked", false)
+                                           .addOnSuccessListener(aVoid -> {
+                                               System.out.println("ArrayList updated successfully.");
+                                               holder.checkbox.setImageResource(R.drawable.stop);
+                                           })
+                                           .addOnFailureListener(e -> {
+                                               System.out.println("Error updating ArrayList: " + e.getMessage());
+                                           });
+                               } else {
+                                   System.out.println("User document doesn't exist.");
+                               }
+                           })
+                           .addOnFailureListener(e -> {
+                               System.out.println("Error retrieving user: " + e.getMessage());
+                           });
+
+               } else {
+                   DocumentReference userRef = fbs.getFire().collection("Note").document(notepath.get(position).replace("Note",""));
+                   userRef.get()
+                           .addOnSuccessListener((DocumentSnapshot documentSnapshot) -> {
+
+                               if (documentSnapshot.exists()) {
+                                   documentSnapshot.getReference().update("ischecked", true)
+                                           .addOnSuccessListener(aVoid -> {
+                                               System.out.println("ArrayList updated successfully.");
+                                               holder.checkbox.setImageResource(R.drawable.checked);
+                                           })
+                                           .addOnFailureListener(e -> {
+                                               System.out.println("Error updating ArrayList: " + e.getMessage());
+                                           });
+                               } else {
+                                   System.out.println("User document doesn't exist.");
+                               }
+                           })
+                           .addOnFailureListener(e -> {
+                               System.out.println("Error retrieving user: " + e.getMessage());
+                           });
+               }
+       }});
+
+       holder.description.setOnClickListener(new View.OnClickListener(){
+               @Override
+               public void onClick (View view){
                AppCompatActivity activity = (AppCompatActivity) context;
-               activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Notepage(notepath.get(position),noteArrayList.get(position))).addToBackStack(null).commit();
+               activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Notepage(notepath.get(position), noteArrayList.get(position))).addToBackStack(null).commit();
            }
        });
+
+
    }
+
 
     @Override
     public int getItemCount(){
@@ -109,6 +166,7 @@ public class Noteadapter extends RecyclerView.Adapter<Noteadapter.MyViewHolder> 
         }
 
     }
+
 
 
     public interface OnItemClickListener {
