@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.taskmanagement.FireeBase.FirebaseServices;
 import com.example.taskmanagement.FireeBase.User;
+import com.example.taskmanagement.MainActivity;
 import com.example.taskmanagement.R;
 import com.example.taskmanagement.Utilites.Utilss;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -172,6 +173,8 @@ public class ProfileFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
     private void goToLogin() {
+        ((MainActivity) getActivity()).getBottomNavigationView().setVisibility(View.GONE);
+
         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new LoginFragment());
         ft.commit();

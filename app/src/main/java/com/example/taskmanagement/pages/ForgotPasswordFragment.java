@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.taskmanagement.FireeBase.FirebaseServices;
+import com.example.taskmanagement.MainActivity;
 import com.example.taskmanagement.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -85,8 +87,10 @@ public class ForgotPasswordFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
+                            goToLogin();
 
                             Toast.makeText(getActivity(), "works!", Toast.LENGTH_SHORT).show();
+
 
                         } else {
                             Toast.makeText(getActivity(), "no work", Toast.LENGTH_SHORT).show();
@@ -97,6 +101,12 @@ public class ForgotPasswordFragment extends Fragment {
                 });
             }
         });
+    }
+    private void goToLogin() {
+
+        FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout,new LoginFragment());
+        ft.commit();
     }
 }
 

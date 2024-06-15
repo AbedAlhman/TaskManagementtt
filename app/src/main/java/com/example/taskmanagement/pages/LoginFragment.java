@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.taskmanagement.FireeBase.FirebaseServices;
+import com.example.taskmanagement.MainActivity;
 import com.example.taskmanagement.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -139,20 +140,28 @@ public class LoginFragment extends Fragment {
 
 
     private void Home() {
+        ((MainActivity) getActivity()).getBottomNavigationView().setVisibility(View.VISIBLE);
+
         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new Home());
         ft.commit();
+
     }
     private void gotoSignupFragment() {
+        ((MainActivity) getActivity()).getBottomNavigationView().setVisibility(View.GONE);
         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new SignupFragment());
         ft.commit();
 
+
     }
     private void gotoForgotPasswordFragment() {
+        ((MainActivity) getActivity()).getBottomNavigationView().setVisibility(View.GONE);
+
         FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new ForgotPasswordFragment());
         ft.commit();
 
     }
+
 }

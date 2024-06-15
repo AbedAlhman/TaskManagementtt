@@ -190,6 +190,8 @@ public class SignupFragment extends Fragment {
 
     public void gotoAddNoteFragment()
     {
+        ((MainActivity) getActivity()).getBottomNavigationView().setVisibility(View.VISIBLE);
+
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new AddNoteFragment());
         ft.commit();

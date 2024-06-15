@@ -184,7 +184,7 @@ public class AddNoteFragment extends Fragment {
 
         Note note;
         if (!isimage) {
-            note = new Note(title, description,importance, "",istask.equals("Task"));
+            note = new Note(title, description,importance, " ",istask.equals("Task"));
         } else {
             note = new Note(title,description,importance, UploadImageToFirebase(),istask.equals("Task"));
 
