@@ -18,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,15 +26,11 @@ import android.widget.Toast;
 
 import com.example.taskmanagement.FireeBase.FirebaseServices;
 import com.example.taskmanagement.FireeBase.Note;
-import com.example.taskmanagement.FireeBase.User;
-import com.example.taskmanagement.Home;
 import com.example.taskmanagement.MainActivity;
 import com.example.taskmanagement.R;
 import com.example.taskmanagement.Utilites.Utilss;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -44,7 +39,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -182,7 +176,7 @@ public class AddNoteFragment extends Fragment {
         description = descriptionInput.getText().toString();
         importance = spnImp.getSelectedItem().toString();
         istask=spntask.getSelectedItem().toString();
-        if (title.trim().isEmpty() && description.trim().isEmpty() && importance.trim().isEmpty()
+        if (title.trim().isEmpty() || description.trim().isEmpty() || importance.trim().isEmpty()
                 ) {
             Toast.makeText(getActivity(), "sorry some data missing incorrect !", Toast.LENGTH_SHORT).show();
             return;

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
 
-    tools:context=".Home">
+    tools:context=".pages.Home">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvnotes"

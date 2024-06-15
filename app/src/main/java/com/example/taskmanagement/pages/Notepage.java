@@ -1,4 +1,4 @@
-package com.example.taskmanagement;
+package com.example.taskmanagement.pages;
 
 import static android.content.ContentValues.TAG;
 
@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.taskmanagement.FireeBase.FirebaseServices;
 import com.example.taskmanagement.FireeBase.Note;
+import com.example.taskmanagement.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;

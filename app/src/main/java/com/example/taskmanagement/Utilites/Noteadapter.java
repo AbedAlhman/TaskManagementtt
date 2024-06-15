@@ -3,7 +3,6 @@ package com.example.taskmanagement.Utilites;
 import static android.app.PendingIntent.getActivity;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,8 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.taskmanagement.FireeBase.FirebaseServices;
 import com.example.taskmanagement.FireeBase.Note;
-import com.example.taskmanagement.FireeBase.User;
-import com.example.taskmanagement.Notepage;
+import com.example.taskmanagement.pages.Notepage;
 import com.example.taskmanagement.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

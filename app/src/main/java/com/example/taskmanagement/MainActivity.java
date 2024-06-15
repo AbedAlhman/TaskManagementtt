@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import com.example.taskmanagement.FireeBase.FirebaseServices;
 import com.example.taskmanagement.pages.AddNoteFragment;
+import com.example.taskmanagement.pages.Home;
 import com.example.taskmanagement.pages.LoginFragment;
 import com.example.taskmanagement.FireeBase.User;
-import com.example.taskmanagement.pages.NoteListFragment;
 import com.example.taskmanagement.pages.ProfileFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
